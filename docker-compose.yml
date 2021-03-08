@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+
+  nginx:
+    container_name: nginx
+    build: ./server
+    ports:
+      - 80:80
+    networks:
+      - api-gateway
+    depends_on:
+      - servicea
+      - serviceb
+
+  servicea:
+    container_name: servicea
+    build: ./services/a
+    ports:
+      - 5000:5000
+    networks:
+      - api-gateway
+
+  serviceb:
+    container_name: serviceb
+    build: ./services/b
+    ports:
+      - 5001:5001
+    networks:
+      - api-gateway
+
+  servicec:
+    container_name: servicec
+    build: ./services/c
+    ports:
+      - 5002:5002
+    networks:
+      - api-gateway
+
+networks:
+  api-gateway:

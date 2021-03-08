@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <title>Website</title>
+  </head>
+  <body>
+    <h1>Hello NGINX!</h1>
+
+    <button onclick="getA()">Call A</button>
+
+    <br />
+
+    <button onclick="getB()">Call B</button>
+
+    <br />
+
+    <button onclick="getC()">Call C</button>
+
+    <script>
+      function getA() {
+        $.ajax({
+          url: "http://127.0.0.1:80/a",
+          method: "GET",
+          success: function (data) {
+            console.log(data);
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+
+      function getB() {
+        $.ajax({
+          url: "http://127.0.0.1:80/b",
+          method: "GET",
+          success: function (data) {
+            console.log(data);
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+
+      function getC() {
+        $.ajax({
+          url: "http://127.0.0.1:80/c",
+          method: "GET",
+          success: function (data) {
+            console.log(data);
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+
+      function getIP() {
+        $.ajax({
+          url: "ipinfo.io/ip",
+          method: "GET",
+          success: function (data) {
+            console.log(data);
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
